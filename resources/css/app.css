@@ -5,3 +5,29 @@
 [x-cloak] {
     display: none;
 }
+
+.login-container{
+    background-image: url('../../public/storage/images/exportación-de-servicios.webp');
+    min-height: 100vh;
+
+}
+
+
+
+/* Estilos globales de tailwind CSS */
+@layer components{
+    /* Boton de enviar */
+    .btn-send{
+        @apply bg-blue-400 px-4 rounded-2xl font-bold duration-300 hover:bg-blue-800 hover:text-white
+    }
+
+    /* Etiqueta */
+    .label{
+        @apply font-bold text-gray-600
+    }
+
+    /* Entrada de los formularios */
+    .input{
+        @apply rounded-3xl px-2 border-blue-500
+    }
+}
