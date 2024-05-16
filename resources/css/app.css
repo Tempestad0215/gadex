@@ -30,4 +30,9 @@
     .input{
         @apply rounded-3xl px-2 border-blue-500
     }
+
+    /* Link de navegacion */
+    .link-nav{
+        @apply bg-blue-300 block py-3 px-5 rounded-3xl font-bold hover:text-white hover:bg-blue-800 duration-300 mt-3 text-center shadow-xl
+    }
 }
