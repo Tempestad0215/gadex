@@ -18,6 +18,19 @@ export default {
                 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
             },
         },
+        colors:{
+            'negro': '#000000',
+            'azulm': '#00BBDF',
+            'azulo': '#002D9E',
+            'azulc': '#00E0F4',
+            'azulp': '#091445',
+            'blanco': '#FFFFFF',
+            'fondo': '#E1EBEC',
+            'fondob': '#C0D6D7',
+            'error': '#CE0505',
+            'exito': '#05CE05'
+
+        }
     },
 
     plugins: [forms, typography],

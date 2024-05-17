@@ -18,21 +18,26 @@
 @layer components{
     /* Boton de enviar */
     .btn-send{
-        @apply bg-blue-400 px-4 rounded-2xl font-bold duration-300 hover:bg-blue-800 hover:text-white
+        @apply bg-azulm px-4 py-1 rounded-2xl font-bold duration-300 hover:bg-azulp hover:text-blanco
     }
 
     /* Etiqueta */
     .label{
-        @apply font-bold text-gray-600
+        @apply font-bold
     }
 
     /* Entrada de los formularios */
     .input{
-        @apply rounded-3xl px-2 border-blue-500
+        @apply rounded-3xl px-2 border-azulm
     }
 
     /* Link de navegacion */
     .link-nav{
-        @apply bg-blue-300 block py-3 px-5 rounded-3xl font-bold hover:text-white hover:bg-blue-800 duration-300 mt-3 text-center shadow-xl
+        @apply bg-azulm block py-3 px-5 rounded-3xl font-bold hover:text-blanco hover:bg-azulp duration-300 mt-3 text-center shadow-xl
+    }
+
+    /* Titulo de la ventana */
+    .titulo{
+        @apply text-center text-3xl text-azulm font-bold
     }
 }

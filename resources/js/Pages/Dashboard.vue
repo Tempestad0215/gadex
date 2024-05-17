@@ -29,26 +29,23 @@ const logOut = () =>{
 
 
 <template>
-    <!-- Titulo de la ventana -->
-    <Head title="Dashboard" />
-
     <!-- Contenido de la ventana -->
-    <div class=" flex h-screen bg-amber-100">
+    <div class=" flex h-screen bg-fondo">
         <!-- Barra latera -->
-        <div class=" w-[200px] border-r-2 border-blue-800 ">
+        <div class=" w-[200px] border-r-2 border-blue-300 ">
 
             <!-- Informacion de la empresa -->
             <div class="py-3" >
                 <img
                     class=" mx-auto"
-                    width="100"
-                    src="../../../public/storage/images/logogadex.png"
+                    width="150"
+                    src="../../../public/storage/images/gadexp.png"
                     alt="logo de la empresa Gadex">
             </div>
 
 
             <!-- Nombre de usuario y cargo -->
-            <div class=" text-center mb-3">
+            <div class=" text-center mb-3 border-b-2 pb-3">
                 <h4 class=" text-xl font-bold max-w-[120px] mx-auto truncate">
                     {{ $page.props.auth.user.name }}
                 </h4>
@@ -56,38 +53,60 @@ const logOut = () =>{
                     (Recepcion)
                 </p>
             </div>
-            <div>
 
-            </div>
-            <hr>
 
 
             <!-- Manu de navegacion -->
-            <div class=" pt-5" >
+            <div class="" >
+
+
                 <!-- Entrada de docuemtno -->
                 <Link
                     class="link-nav"
                     href="/" >
-                    Dashboard
+                    Tablero
                 </Link>
+
+
+                <!-- Entrada de docuemtno -->
+                <Link
+                    class="link-nav"
+                    href="/" >
+                    Cliente
+                </Link>
+
+                <!-- Entrada de docuemtno -->
+                <Link
+                    class="link-nav"
+                    href="/" >
+                    Mensajeros
+                </Link>
+
+
                 <!-- Entrada de docuemtno -->
                 <Link
                     class="link-nav"
                     href="/" >
                     Entrada
                 </Link>
+
+
                 <!-- Salida de documento -->
                 <Link
                     class="link-nav"
                     href="/" >
                     Salida
                 </Link>
+
+
                 <!-- Envio -->
                 <Link
                     class="link-nav"
                     href="/" >
                     Envios
                 </Link>
+
+
                 <!-- Entrada de cheque -->
                 <Link
                     class="link-nav"
@@ -108,7 +127,7 @@ const logOut = () =>{
                 <div class=" absolute right-0 inset-y-0 pr-5 flex items-center" >
                     <i
                         @click="logOut"
-                        class="fa-solid fa-arrow-right-from-bracket text-3xl float-right "></i>
+                        class="fa-solid fa-arrow-right-from-bracket text-3xl float-right text-azulm hover:text-azulp duration-300 "></i>
                 </div>
             </div>
             <hr>

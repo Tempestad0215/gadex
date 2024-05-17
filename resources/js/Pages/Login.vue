@@ -35,7 +35,7 @@ const submit = () =>{
 
         <!-- Contenido del formulario -->
         <div
-            class=" bg-white min-h-svh  lg:max-w-md rounded-lg p-6 shadow-lg bg-opacity-60 ">
+            class=" bg-fondo min-h-svh lg:max-w-md rounded-lg p-6 shadow-lg bg-opacity-60 ">
             <div>
                 <h3 class=" text-3xl font-bold text-center ">
                     Login
@@ -58,7 +58,7 @@ const submit = () =>{
                         Email
                     </label>
                     <input
-                        v-model="form.email"
+                        v-model.trim="form.email"
                         class="input w-full"
                         type="email" required >
                 </div>
