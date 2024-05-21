@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\ClientController;
-use Illuminate\Foundation\Application;
+use App\Http\Controllers\MessengerController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -22,10 +22,19 @@ Route::middleware([
 
 Route::controller(ClientController::class)
     ->prefix('client')
-    ->name('client')->group(function () {
-    Route::get('/', 'index')->name('.index');
-    Route::post('/','store')->name('.store');
-    Route::put('/update/{client}','update')->name('.update');
-    Route::put('/destroy/{client}','destroy')->name('.destroy');
+    ->group(function () {
+        Route::get('/', 'index')->name('.index');
+        Route::post('/','store')->name('.store');
+        Route::put('/update/{client}','update')->name('.update');
+        Route::put('/destroy/{client}','destroy')->name('.destroy');
 });
+
+Route::controller(MessengerController::class)
+    ->prefix('/messenger')
+    ->group(function () {
+        Route::get('/','index');
+        Route::post('/','store');
+        Route::put('/update/{messenger}','update');
+        Route::put('/destroy/{messenger}','destroy');
+    });
 

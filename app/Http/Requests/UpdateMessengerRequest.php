@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class UpdateMessengerRequest extends FormRequest
 {
@@ -11,7 +12,7 @@ class UpdateMessengerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,8 +22,15 @@ class UpdateMessengerRequest extends FormRequest
      */
     public function rules(): array
     {
+        $id = $this->input('id');
+
         return [
-            //
+            'name' => ['required','string','max:75'],
+            'last_name' => ['required','string','max:75'],
+            'phone' => ['required','string','max:20',Rule::unique('messengers','phone')->ignore($id)],
+            'email' => ['required','string','email',Rule::unique('messengers','email')->ignore($id)],
+            'company' => ['nullable','string','max:50'],
+            'company_phone' => ['nullable','string','max:20'],
         ];
     }
 }

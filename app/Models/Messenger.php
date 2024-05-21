@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Messenger extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'name',
+        'last_name',
+        'phone',
+        'email',
+        'company',
+        'company_phone',
+        'status'
+    ];
 }

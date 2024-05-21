@@ -11,7 +11,7 @@ class StoreMessengerRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,12 @@ class StoreMessengerRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => ['required','string','max:75'],
+            'last_name' => ['required','string','max:75'],
+            'phone' => ['required','string','max:20','unique:messengers,phone'],
+            'email' => ['required','string','email','unique:messengers,email'],
+            'company' => ['nullable','string','max:50'],
+            'company_phone' => ['nullable','string','max:20'],
         ];
     }
 }

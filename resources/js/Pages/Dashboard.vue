@@ -71,14 +71,14 @@ const logOut = () =>{
                 <!-- Entrada de docuemtno -->
                 <Link
                     class="link-nav"
-                    href="/" >
+                    href="/client" >
                     Cliente
                 </Link>
 
                 <!-- Entrada de docuemtno -->
                 <Link
                     class="link-nav"
-                    href="/" >
+                    href="/messenger" >
                     Mensajeros
                 </Link>
 

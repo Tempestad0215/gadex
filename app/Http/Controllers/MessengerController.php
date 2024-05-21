@@ -2,26 +2,35 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\MessengerHelper;
 use App\Http\Requests\StoreMessengerRequest;
 use App\Http\Requests\UpdateMessengerRequest;
 use App\Models\Messenger;
+use Illuminate\Http\Request;
+use Inertia\Inertia;
 
 class MessengerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
+    private $messenger;
+
+    public function __construct()
     {
-        //
+        $this->messenger = new MessengerHelper();
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Display a listing of the resource.
      */
-    public function create()
+    public function index(Request $request)
     {
-        //
+        // Devolver la vista
+        $search = $request->get("search");
+
+        $messengerData = $this->messenger->getMessenger($search);
+
+        return Inertia::render('Messenger/Index',[
+            'messengers' => $messengerData
+        ]);
     }
 
     /**
@@ -29,31 +38,37 @@ class MessengerController extends Controller
      */
     public function store(StoreMessengerRequest $request)
     {
-        //
+        try {
+
+            // Guiardar los datos validados
+            Messenger::create($request->validated());
+
+            // retornar hacia atras
+            return back();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Messenger $messenger)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(Messenger $messenger)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
      */
     public function update(UpdateMessengerRequest $request, Messenger $messenger)
     {
-        //
+        try {
+
+            // Datos actualizados
+            $messenger->update($request->validated());
+
+            // Retornar hacia atras
+            return back();
+
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 
     /**
@@ -61,6 +76,17 @@ class MessengerController extends Controller
      */
     public function destroy(Messenger $messenger)
     {
-        //
+        try {
+
+            // Poner los datos en true para no mostrarlo
+            $messenger->update([
+                'status' => true
+            ]);
+
+            return back();
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
     }
 }

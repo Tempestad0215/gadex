@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('email')->unique()->nullable();
             $table->string('company')->nullable();
             $table->string('company_phone')->nullable();
-            $table->string('status')->nullable();
+            $table->string('status')->default(0);
             $table->timestamps();
         });
     }

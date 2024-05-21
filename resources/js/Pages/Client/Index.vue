@@ -3,6 +3,8 @@ import Dashboard from '../Dashboard.vue';
 import Error from '../../Partials/Error.vue';
 import { Link, router, useForm } from '@inertiajs/vue3';
 import Swal from 'sweetalert2';
+import FormSearch from '../../Partials/FormSearch.vue';
+import Pagination from '../../Partials/Pagination.vue';
 
 
 const props = defineProps({
@@ -246,27 +248,10 @@ const destroy = (id) => {
                     Tabla
                 </h3>
 
-                <!-- Buscador del cliente -->
-                <div>
-                    <label
-                        for="search"
-                        class="label block">
-                        Buscar
-                    </label>
-                    <div class=" relative max-w-[350px]">
-                        <input
-                            v-model="formSearch.search"
-                            placeholder="Busqueda"
-                            type="text"
-                            class="input w-[300px]">
-
-                        <!-- Boton de busqueda -->
-
-                        <i
-                            @click="search"
-                            class=" text-2xl absolute right-0 bg-fondob hover:bg-azulp hover:text-blanco duration-300 px-3 inset-y-0 flex items-center rounded-full fa-solid fa-magnifying-glass"></i>
-                    </div>
-                </div>
+                <!-- Formuilario de busqueda -->
+                <FormSearch
+                    @searchData="search"
+                    v-model="formSearch.search" />
 
                 <!-- Tabla de los clientes -->
                 <table class=" table-auto w-full ">
@@ -307,48 +292,12 @@ const destroy = (id) => {
                 </table>
 
                 <hr>
-
-                <!-- Paginacion de la tabla -->
-                <div class=" flex justify-between mt-3">
-
-                    <!-- Informacion que se muestra -->
-                    <div>
-                        <!-- Pagina actual -->
-                        <span>
-                            <strong>
-                                Pagina:
-                            </strong>
-                            {{ clients.current_page }}
-                        </span>
-                        |
-                        <!-- Por pagina -->
-                        <span>
-                            <strong>
-                                Total mostrado:
-                            </strong>
-                            {{ clients.to }}
-                        </span>
-                    </div>
-
-
-                    <!-- Link de navegacion -->
-                    <div class=" text-3xl space-x-5">
-                        <!-- Atras -->
-                        <Link
-                            preserve-scroll
-                            preserve-state
-                            :href="clients.prev_page_url || ''" >
-                            <i class="text-azulm hover:text-azulp duration-300 fa-solid fa-circle-arrow-left"></i>
-                        </Link>
-                        <!-- Adelante -->
-                        <Link
-                            preserve-scroll
-                            preserve-state
-                            :href="clients.next_page_url || ''  ">
-                            <i class=" text-azulm hover:text-azulp duration-300  fa-solid fa-circle-arrow-right"></i>
-                        </Link>
-                    </div>
-                </div>
+                <!-- Paginacion  -->
+                <Pagination
+                    :current-page="clients.current_page "
+                    :total="clients.to"
+                    :prev="clients.prev_page_url"
+                    :next="clients.next_page_url"/>
             </div>
 
         </div>
